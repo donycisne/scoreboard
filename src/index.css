@@ -101,7 +101,7 @@ header h1 {
 .stats {
   background: #5b45b9;
   font-weight: normal;
-  height: 60px;
+  height: 100px;
   padding: 20px 30px;
 }
 
@@ -117,11 +117,15 @@ header h1 {
   font-size: 0.7em;
 }
 
+.stats td:last-child {
+  text-align: right;
+}
+
 /* ===== COUNTER ===== */
 
 .counter {
   display: flex;
-  width: 190px;
+  width: 194px;
 }
 
 .counter-action {
@@ -209,8 +213,43 @@ input[type='submit'] {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+.stopwatch button:hover,
 input[type='submit']:hover {
   background: #fff;
   color: #44338d;
   cursor: pointer;
+}
+
+/* ===== STOPWATCH ===== */
+
+.stopwatch {
+  width: 194px;
+  padding: 17px;
+  background: #5b45b9;
+}
+
+.stopwatch-time {
+  display: block;
+  font-family: monospace;
+  font-size: 2.15em;
+}
+
+.stopwatch button {
+  margin: 8px 5px;
+  background-color: #44338d;
+  border-radius: 5px;
+  padding: 7px 8px;
+  border: none;
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-shadow: none;
+  text-transform: uppercase;
+}
+
+.stopwatch h2 {
+  font-size: 1em;
+  font-weight: normal;
+  letter-spacing: 2px;
+  margin: 4px 0;
 }

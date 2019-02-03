@@ -32,7 +32,7 @@ class App extends Component {
   prevPlayerId = this.state.players.length;
 
   handleScoreChange = (index, delta) => {
-    this.setState( prevState => ({
+    this.setState(prevState => ({
       score: prevState.players[index].score += delta,
     }));
   };
@@ -51,7 +51,7 @@ class App extends Component {
   }
 
   handleRemovePlayer = id => {
-    this.setState( prevState => {
+    this.setState(prevState => {
       return {
         players: prevState.players.filter(p => p.id !== id),
       };
