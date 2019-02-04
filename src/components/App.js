@@ -38,16 +38,18 @@ class App extends Component {
   };
 
   handleAddPlayer = (name) => {
-    this.setState(prevState => ({
-      players: [
-        ...prevState.players,
-        {
-          name,
-          score: 0,
-          id: ++this.prevPlayerId
-        }
-      ]
-    }));
+    if(name.trim() !== '') {
+      this.setState(prevState => ({
+        players: [
+          ...prevState.players,
+          {
+            name,
+            score: 0,
+            id: this.prevPlayerId += 1
+          }
+        ]
+      }));
+    }
   }
 
   handleRemovePlayer = id => {
@@ -61,12 +63,8 @@ class App extends Component {
   render() {
     return (
       <div className="scoreboard">
-        <Header
-          title="Scoreboard"
-          players={this.state.players}
-        />
+        <Header players={this.state.players} />
 
-        {/* Players list */}
         {this.state.players.map((player, index) =>
           <Player
             name={player.name}
