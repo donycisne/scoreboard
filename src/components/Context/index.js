@@ -78,7 +78,7 @@ export class Provider extends Component {
           highScore: this.getHighScore()
         }
       }}>
-      { this.props.children }
+        { this.props.children }
       </ScoreboardContext.Provider>
     );
   }
