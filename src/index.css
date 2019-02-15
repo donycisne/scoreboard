@@ -36,6 +36,7 @@ header h1 {
   font-size: 1.5em;
   letter-spacing: 2px;
   font-weight: normal;
+  order: 2;
 }
 
 button:disabled,
@@ -51,7 +52,7 @@ button:disabled:hover {
 
 .scoreboard {
   background: #fff;
-  width: 700px;
+  max-width: 700px;
   margin: 70px auto;
   box-shadow: 0 2px 0 rgb(133, 104, 250);
   border-radius: 6px;
@@ -101,14 +102,12 @@ button:disabled:hover {
 /* ===== STATS ===== */
 
 .stats {
-  width: 210px;
-}
-
-.stats {
+  width: 194px;
   background: #5b45b9;
   font-weight: normal;
   height: 100px;
   padding: 20px 30px;
+  order: 1;
 }
 
 .stats caption {
@@ -232,6 +231,7 @@ input[type='submit']:hover {
   width: 194px;
   padding: 17px;
   background: #5b45b9;
+  order: 3;
 }
 
 .stopwatch-time {
@@ -278,5 +278,133 @@ svg {
 @keyframes grow {
   50% {
     transform: scale(1.4) rotate(-3deg);
+  }
+}
+
+/* MEDIA QUERIES -------------------- */
+
+@media (max-width: 750px) {
+  .scoreboard {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    border-radius: 0;
+  }
+
+  header {
+    flex-direction: column;
+    display: block;
+    padding-bottom: 15px;
+    height: 230px;
+  }
+
+  header h1 {
+    order: 1;
+    width: 100%;
+    padding: 15px 0;
+  }
+
+  .stats {
+    order: 2;
+    float: left;
+    width: 45%;
+    height: 94px;
+    padding: 10px 15px;
+    margin-left: 10px;
+    border-radius: 0 0 5px 5px;
+  }
+
+  .stats caption {
+    border-radius: 5px 5px 0 0;
+    padding-top: 14px;
+  }
+
+  .stopwatch {
+    order: 3;
+    float: right;
+    width: 45%;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+  }
+
+  header caption,
+  .stopwatch h2 {
+    font-size: 0.8em;
+  }
+
+  .stopwatch h2 {
+    margin-bottom: 12px;
+  }
+
+  .stopwatch button {
+    font-size: .6em;
+    margin: 12px 0 2px;
+    letter-spacing: 1px;
+    width: 45%;
+  }
+
+  .btn-start {
+    float: left;
+  }
+
+  .btn-reset {
+    float: right;
+  }
+
+  .player-name {
+    width: 50%;
+    font-size: .6em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+
+  .counter {
+    width: 160px;
+    display: flex;
+    align-items: center;
+  }
+
+  .counter-score {
+    font-size: 1.25em;
+  }
+
+  .player-list {
+    height: calc(100vh - 290px);
+    overflow: scroll;
+    background: #efeaff;
+  }
+
+  .player {
+    background: #ffffff;
+  }
+
+  form {
+    height: 60px;
+  }
+
+  form input:first-child {
+    width: 70%;
+    font-size: .5em;
+  }
+
+  form input:last-child {
+    width: 30%;
+    font-size: .5em;
+  }
+
+  .player-name button {
+    display: none;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  .stopwatch-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
   }
 }

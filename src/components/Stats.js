@@ -19,7 +19,7 @@ const Stats = () => {
                 <td>{totalPlayers}</td>
               </tr>
               <tr>
-                <td>Total Points:</td>
+                <td>Points:</td>
                 <td>{totalPoints}</td>
               </tr>
             </tbody>

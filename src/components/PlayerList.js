@@ -6,7 +6,7 @@ const PlayerList = () => {
   return (
     <Consumer>
       { ({ players, actions }) => (
-        <React.Fragment>
+        <div  className="player-list">
           {players.map((player, index) =>
             <Player
               {...player}
@@ -15,7 +15,7 @@ const PlayerList = () => {
               isHighScore={actions.highScore === player.score}
             />
           )}
-        </React.Fragment>
+        </div >
       )}
     </Consumer>
   );
