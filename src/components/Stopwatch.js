@@ -5,7 +5,7 @@ class Stopwatch extends Component {
   state = {
     isRunning: false,
     elapsedTime: 0,
-    previousTime: 0
+    previousTime: 0,
   };
 
   componentDidMount() {
@@ -40,6 +40,7 @@ class Stopwatch extends Component {
   }
 
   render() {
+
     const seconds = Math.floor(this.state.elapsedTime / 1000)
 
     return (

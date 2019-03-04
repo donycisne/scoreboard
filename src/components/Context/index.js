@@ -10,10 +10,21 @@ export class Provider extends Component {
 
   prevPlayerId = this.state.players.length;
 
+  componentDidMount() {
+    const playersStorage = localStorage.getItem('players', this.state.players);
+    if (playersStorage) {
+      this.setState({ players: JSON.parse(playersStorage) });
+    }
+  }
+
+  setLocalStorage() {
+    localStorage.setItem('players', JSON.stringify(this.state.players));
+  }
+
   handleScoreChange = (index, delta) => {
     this.setState(prevState => ({
       score: prevState.players[index].score += delta,
-    }));
+    }), this.setLocalStorage);
   };
 
   getHighScore = () => {
@@ -34,7 +45,7 @@ export class Provider extends Component {
             id: this.prevPlayerId += 1
           }
         ]
-      }));
+      }), this.setLocalStorage);
     }
   }
 
@@ -43,7 +54,7 @@ export class Provider extends Component {
       return {
         players: prevState.players.filter(p => p.id !== id),
       };
-    });
+    }, this.setLocalStorage);
   }
 
   render() {
