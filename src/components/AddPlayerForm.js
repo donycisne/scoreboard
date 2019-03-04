@@ -20,6 +20,7 @@ const AddPlayerForm = () => {
               type="text"
               ref={playerInput}
               placeholder="Enter a player's name"
+              required
             />
             <input
               type="submit"

@@ -19,14 +19,16 @@ class Player extends PureComponent {
       <div className="player">
         <Consumer>
           { ({ actions, players }) => (
-            <span className="player-name">
+            <div className="player-name">
               <button
                 className="remove-player"
                 onClick={() => actions.removePlayer(players[index].id)}
               >✖</button>
               <Crown isHighScore={isHighScore} />
-              { players[index].name }
-            </span>
+              <span className="name">
+                { players[index].name }
+              </span>
+            </div>
           )}
         </Consumer>
         <Counter index={index} />

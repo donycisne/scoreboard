@@ -6,7 +6,7 @@ const PlayerList = () => {
   return (
     <Consumer>
       { ({ players, actions }) => (
-        <div  className="player-list">
+        <div  className={ players.length === 0 ? "no-player-list" : "player-list"}>
           {players.map((player, index) =>
             <Player
               {...player}

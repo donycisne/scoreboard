@@ -5,7 +5,6 @@ html {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
 *,
 *:before,
 *:after {
@@ -13,10 +12,10 @@ html {
   -moz-box-sizing: inherit;
   box-sizing: inherit;
 }
-
 body {
+  margin: 0;
   background: #e8e7e7;
-  font-family: arial;
+  font-family: 'Boogaloo', cursive;
   text-transform: uppercase;
 }
 
@@ -30,15 +29,12 @@ header {
   background-color: #8063fa;
   border-bottom: solid 2px #d4caff;
 }
-
 header h1 {
   flex-grow: 1;
-  font-size: 1.5em;
   letter-spacing: 2px;
   font-weight: normal;
   order: 2;
 }
-
 button:disabled,
 button:disabled:hover {
   color: #d1d1d1;
@@ -49,7 +45,6 @@ button:disabled:hover {
 /* COMPONENT STYLES -------------------- */
 
 /* ===== SCOREBOARD ===== */
-
 .scoreboard {
   background: #fff;
   max-width: 700px;
@@ -60,47 +55,81 @@ button:disabled:hover {
 }
 
 /* ===== PLAYER ===== */
-
 .player {
   display: flex;
   font-size: 1.2em;
   border-bottom: solid 2px #eeeeee;
   letter-spacing: 2px;
+  background: #ffffff;
 }
-
 .player:last-of-type {
   border-bottom-color: #d4caff;
 }
-
 .player-name:hover .remove-player {
   visibility: visible;
 }
-
 .player-name,
 .counter-score {
   color: #2f2366;
 }
-
 .player-name {
+  width: 525px;
+  height: 65px;
   flex-grow: 1;
-  line-height: 3.5em;
-  padding-left: 10px;
+  display: flex;
+  align-items: center;
 }
-
 .remove-player {
-  font-size: 1.15em;
+  font-size: 1.25em;
   border: none;
   outline: none;
   visibility: hidden;
-  color: #ef5350;
+  color: #ffffff;
+  background: #ef5350;
   cursor: pointer;
   margin: 0 10px 0 0;
   padding: 0;
-  background: none;
+  height: 100%;
+  width: 50px;
+}
+.player-list,
+.no-player-list {
+  height: calc(100vh - 390px);
+  background: #efeaff;
+  border: 3px solid #5b45b9;
+}
+.no-player-list::after {
+  content: "💔 No Players 💔";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 390px);
+  opacity: .5;
+}
+.player-list {
+  height: calc(100vh - 390px);
+  overflow-y: scroll;
+}
+.player-list::-webkit-scrollbar {
+  width: 4px;
+}
+.player-list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(10, 10, 10, 0.3);
+	-webkit-box-shadow: inset 0 0 6px rgba(10, 10, 10, 0.3);
+	background-color: #d4caff;
+}
+.player-list::-webkit-scrollbar-thumb {
+	box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #7d69da;
+}
+.name {
+  width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 /* ===== STATS ===== */
-
 .stats {
   width: 194px;
   background: #5b45b9;
@@ -109,30 +138,25 @@ button:disabled:hover {
   padding: 20px 30px;
   order: 1;
 }
-
 .stats caption {
   padding-top: 20px;
   background: #5b45b9;
 }
-
 .stats td:first-child {
   text-align: left;
   font-weight: normal;
   letter-spacing: 2px;
   font-size: 0.7em;
 }
-
 .stats td:last-child {
   text-align: right;
 }
 
 /* ===== COUNTER ===== */
-
 .counter {
   display: flex;
   width: 194px;
 }
-
 .counter-action {
   border: none;
   font-size: 1.15em;
@@ -144,19 +168,15 @@ button:disabled:hover {
   cursor: pointer;
   outline: none;
 }
-
 .counter-action:hover {
   color: #fff;
 }
-
 .increment:hover {
   background: #83d97c;
 }
-
 .decrement:hover {
   background: #ef5350;
 }
-
 .counter-score {
   flex-grow: 1;
   text-align: center;
@@ -166,12 +186,12 @@ button:disabled:hover {
 }
 
 /* ===== ADD PLAYER FORM ===== */
-
 form {
   display: flex;
   background-color: #8063fa;
+  height: 60px;
+  border-top: solid 2px #d4caff;
 }
-
 input[type='text'] {
   flex-grow: 1;
   border-width: 0 0 1px 0;
@@ -186,16 +206,13 @@ input[type='text'] {
   letter-spacing: 2px;
   outline: none;
 }
-
 input[type='text']::-webkit-input-placeholder {
   color: #c7bcf8;
   letter-spacing: 2px;
 }
-
 input[type='text']:focus {
   background-color: rgba(0, 0, 0, 0.2);
 }
-
 input[type='submit'] {
   display: block;
   font-size: 0.6em;
@@ -211,13 +228,11 @@ input[type='submit'] {
   text-transform: uppercase;
   cursor: pointer;
 }
-
 button,
 input[type='submit'] {
   outline: none;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
-
 .stopwatch button:hover,
 input[type='submit']:hover {
   background: #fff;
@@ -226,20 +241,17 @@ input[type='submit']:hover {
 }
 
 /* ===== STOPWATCH ===== */
-
 .stopwatch {
   width: 194px;
   padding: 17px;
   background: #5b45b9;
   order: 3;
 }
-
 .stopwatch-time {
   display: block;
   font-family: monospace;
   font-size: 2.15em;
 }
-
 .stopwatch button {
   margin: 8px 5px;
   background-color: #44338d;
@@ -252,7 +264,6 @@ input[type='submit']:hover {
   text-shadow: none;
   text-transform: uppercase;
 }
-
 .stopwatch h2 {
   font-size: 1em;
   font-weight: normal;
@@ -261,20 +272,17 @@ input[type='submit']:hover {
 }
 
 /* ===== CROWN ===== */
-
 svg {
   width: 28px;
   height: 19px;
-  margin-right: 5px;
+  margin-right: 10px;
   fill: #f0f0f0;
 }
-
 .is-high-score {
   fill: #ffc657;
   animation: grow 0.35s ease-in-out;
   transform-origin: 50% 50%;
 }
-
 @keyframes grow {
   50% {
     transform: scale(1.4) rotate(-3deg);
@@ -283,27 +291,61 @@ svg {
 
 /* MEDIA QUERIES -------------------- */
 
-@media (max-width: 750px) {
+@media (max-width: 700px) {
+  /* ===== SCOREBOARD ===== */
   .scoreboard {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
     border-radius: 0;
   }
-
   header {
     flex-direction: column;
     display: block;
     padding-bottom: 15px;
-    height: 230px;
+    height: 220px;
   }
-
   header h1 {
     order: 1;
     width: 100%;
-    padding: 15px 0;
+  }
+  header caption,
+  .stopwatch h2 {
+    font-size: 0.8em;
   }
 
+  /* ===== PLAYER ===== */
+  .player-list,
+  .no-player-list,
+  .no-player-list::after {
+    height: calc(100vh - 282px);
+  }
+  .player-list {
+    overflow-y: scroll;
+    background: #efeaff;
+  }
+  .no-player-list {
+    background: #efeaff;
+  }
+  .no-player-list::after {
+    content: "💔 No Players 💔";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: .5;
+  }
+  .player {
+    background: #ffffff;
+  }
+  .player-name {
+    width: 50%;
+    font-size: .6em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+
+  /* ===== STATS ===== */
   .stats {
     order: 2;
     float: left;
@@ -313,12 +355,12 @@ svg {
     margin-left: 10px;
     border-radius: 0 0 5px 5px;
   }
-
   .stats caption {
     border-radius: 5px 5px 0 0;
     padding-top: 14px;
   }
 
+  /* ===== STOPWATCH ===== */
   .stopwatch {
     order: 3;
     float: right;
@@ -327,84 +369,52 @@ svg {
     margin-right: 10px;
     border-radius: 5px;
   }
-
-  header caption,
-  .stopwatch h2 {
-    font-size: 0.8em;
-  }
-
   .stopwatch h2 {
     margin-bottom: 12px;
   }
-
+  .stopwatch-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
   .stopwatch button {
     font-size: .6em;
     margin: 12px 0 2px;
     letter-spacing: 1px;
     width: 45%;
   }
-
   .btn-start {
     float: left;
   }
-
   .btn-reset {
     float: right;
   }
 
-  .player-name {
-    width: 50%;
-    font-size: .6em;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-  }
-
+  /* ===== COUNTER ===== */
   .counter {
     width: 160px;
     display: flex;
     align-items: center;
   }
-
   .counter-score {
     font-size: 1.25em;
   }
 
-  .player-list {
-    height: calc(100vh - 290px);
-    overflow: scroll;
-    background: #efeaff;
-  }
-
-  .player {
-    background: #ffffff;
-  }
-
-  form {
-    height: 60px;
-  }
-
+  /* ===== ADD PLAYER FORM ===== */
   form input:first-child {
     width: 70%;
     font-size: .5em;
   }
-
   form input:last-child {
     width: 30%;
     font-size: .5em;
   }
+}
 
-  .player-name button {
-    display: none;
-  }
-
-  body {
-    margin: 0;
-  }
-
-  .stopwatch-buttons {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+@media (max-width: 350px) {
+  /* ===== PLAYER ===== */
+  .name {
+    width: 150px;
+    margin-right: 20px;
   }
 }

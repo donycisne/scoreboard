@@ -5,28 +5,7 @@ const ScoreboardContext = React.createContext();
 export class Provider extends Component {
 
   state = {
-    players: [
-      {
-        name: 'Dony',
-        score: 0,
-        id: 1,
-      },
-      {
-        name: 'Samantha',
-        score: 0,
-        id: 2,
-      },
-      {
-        name: 'Elizabeth',
-        score: 0,
-        id: 3,
-      },
-      {
-        name: 'Edward',
-        score: 0,
-        id: 4,
-      },
-    ],
+    players: [],
   };
 
   prevPlayerId = this.state.players.length;
